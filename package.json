@@ -1,26 +1,22 @@
 {
-  "name": "walk-object",
-  "version": "2.0.1",
-  "description": "Walk an object's keys",
+  "name": "set-object",
+  "version": "1.0.0",
+  "description": "Set the value of a deeply nested object",
   "main": "walk-object.js",
   "scripts": {
-    "test": "tape test/walk-object.test.js"
+    "test": "tape test/set-object.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mmckelvy/walk-object.git"
+    "url": "git@github.com:mmckelvy/set-object.git"
   },
   "keywords": [
-    "walk object",
-    "recursion",
-    "nodes object"
+    "set object",
+    "nested"
   ],
   "author": "Mark McKelvy",
   "license": "MIT",
   "devDependencies": {
     "tape": "^4.6.3"
-  },
-  "dependencies": {
-    "is-pure-object": "^1.0.0"
   }
 }
