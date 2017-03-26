@@ -1,18 +1,19 @@
 {
-  "name": "set-object",
+  "name": "set-deep-prop",
   "version": "1.0.0",
-  "description": "Set the value of a deeply nested object",
-  "main": "walk-object.js",
+  "description": "Set the value of a deeply nested object or array",
+  "main": "set-deep-prop.js",
   "scripts": {
-    "test": "tape test/set-object.test.js"
+    "test": "tape test/set-deep-prop.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mmckelvy/set-object.git"
+    "url": "git@github.com:mmckelvy/set-deep-prop.git"
   },
   "keywords": [
     "set object",
-    "nested"
+    "nested",
+    "deep"
   ],
   "author": "Mark McKelvy",
   "license": "MIT",

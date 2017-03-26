@@ -1,9 +1,8 @@
 const test = require('tape')
-const { inspect } = require('util')
 
-const setObject = require('../set-object')
+const setDeepProp = require('../set-deep-prop')
 
-test('setObject', function(t) {
+test('setDeepProp', function(t) {
   const obj = {
     order: {
       number: 243,
@@ -45,18 +44,18 @@ test('setObject', function(t) {
     }
   }
 
-  setObject(obj, ['order', 'customer', 'name'], 'Bill Johnson')
+  setDeepProp(obj, ['order', 'customer', 'name'], 'Bill Johnson')
 
   t.equal(
     obj.order.customer.name,
     'Bill Johnson',
-    'Should set a deeply nested key / val'
+    'Should set a deeply nested object'
   )
 
   t.end()
 })
 
-test('setObject', function(t) {
+test('setDeepProp', function(t) {
   const obj = {
     order: {
       number: 243,
@@ -98,18 +97,18 @@ test('setObject', function(t) {
     }
   }
 
-  setObject(obj, ['order', 'items', 0, 'fruit'], 'pear')
+  setDeepProp(obj, ['order', 'items', 0, 'fruit'], 'pear')
 
   t.equal(
     obj.order.items[0].fruit,
     'pear',
-    'Should work for arrays'
+    'Should work with objects nested in arrays'
   )
 
   t.end()
 })
 
-test('setObject', function(t) {
+test('setDeepProp', function(t) {
   const obj = {
     order: {
       number: 243,
@@ -151,12 +150,40 @@ test('setObject', function(t) {
     }
   }
 
-  setObject(obj, ['order', 'items', 1, 'regions', 1, 'state'], 'Alabama')
+  setDeepProp(obj, ['order', 'items', 1, 'regions', 1, 'state'], 'Alabama')
 
   t.equal(
     obj.order.items[1].regions[1].state,
     'Alabama',
     'Should work for objects nested in arrays'
+  )
+
+  t.end()
+})
+
+test('setDeepProp', function(t) {
+  const obj = {
+    order: {
+      number: 243,
+      customer: {
+        name: 'John Smith',
+        email: 'j@smith.com',
+        city: 'LA'
+      },
+      items: [
+        'apple',
+        'pear',
+        'banana'
+      ]
+    }
+  }
+
+  setDeepProp(obj, ['order', 'items', 1], 'orange')
+
+  t.equal(
+    obj.order.items[1],
+    'orange',
+    'Should work for array props'
   )
 
   t.end()

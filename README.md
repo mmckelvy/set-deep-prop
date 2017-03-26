@@ -1,46 +1,34 @@
-# walk-object
-Walks an object's keys, calling a function when a leaf node is reached.
-The function will be passed the leaf node's value and the location (the location will be an array)
+# set-deep-prop
+Sets the value for a deeply nested object or array.
 
 ## Example
 ```
-const walkObject = require('walk-object')
+const setDeepProp = require('set-deep-prop')
 
 const obj = {
   order: {
     number: 123,
-    customer: {
-      name: 'John Smith'
-    },
     items: [
       {
-        sku: 456,
-        description: 'shirt'
+        sku: 1,
+        description: 'shirt',
       },
       {
-        sku: 789,
+        sku: 2,
         description: 'pants'
       }
     ]
-  },
+  }
 }
 
-walkObject(obj, (value, location) => {
-  console.log(value, location)
-})
+setDeepProp(obj, ['order', 'items', 1, 'description'], 'hat')
+console.log(obj.order.items[1].description) // 'hat'
 
-//
-123, ['order', 'number']
-'John Smith', ['order', 'customer', 'name']
-456, ['order', 'customer', 'items', 0, 'sku']
-'shirt', ['order', 'customer', 'items', 0, 'description']
-789, ['order', 'customer', 'items', 1, 'sku']
-'pants', ['order', 'customer', 'items', 1, 'description']
 ```
 
 ## Installation
 ```
-npm install --save walk-object
+npm install --save set-deep-prop
 ```
 
 ## Test

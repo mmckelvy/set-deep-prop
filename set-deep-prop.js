@@ -1,7 +1,5 @@
-const { inspect } = require('util')
-
 /**
-* Sets a deeply nested object property.
+* Sets a deeply nested object or array property.
 *
 * @param {object} obj -- The deeply nested object
 * @param {array} path -- The path to the object as an array. Ex: ['topkey', 'nextkey', 0, 'nestedKey']
@@ -10,7 +8,7 @@ const { inspect } = require('util')
 * @return {object} -- The updated object. Note that this method mutates the original object.
 */
 
-module.exports = function setObject(obj, path, value) {
+module.exports = function setDeepProp(obj, path, value) {
   let current = obj
 
   // Get to the proper key
