@@ -26,9 +26,21 @@ console.log(obj.order.items[1].description) // 'hat'
 
 ```
 
+See test/set-deep-prop.test.js for more examples.
+
 ## Installation
 ```
 npm install --save set-deep-prop
+```
+
+## API
+```
+setDeepProp(obj, path, value)
+@param {object} obj -- The deeply nested object
+@param {array} path -- The path to the object as an array. Ex: ['topkey', 'nextkey', 0, 'nestedKey']
+@param {any} value -- The new value to set.
+
+@return {object} -- The updated object. Note that this method mutates the original object.
 ```
 
 ## Test
