@@ -13,7 +13,10 @@ module.exports = function setDeepProp(obj, path, value) {
 
   // Get to the proper key
   for (let i = 0; i < path.length - 1; i++) {
-    current = current[path[i]]
+    let key = path[i]
+    if (key == "__proto__" || key == "prototype" || key == "constructor")
+      return undefined;
+    current = current[key]
   }
 
   // Set the proper key
